@@ -381,6 +381,7 @@ main { display: grid; align-content: start; gap: 3rem; padding-block: 1rem 2rem;
 
 /* ---------- dietary form ---------- */
 .diet {
+  scroll-margin-top: 84px; /* clear the sticky tabs */
   display: grid;
   gap: 16px;
   background: var(--card);

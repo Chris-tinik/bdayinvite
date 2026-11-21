@@ -95,6 +95,13 @@
       });
     });
     document.querySelectorAll("[data-goto]").forEach((b) => b.addEventListener("click", () => showTab(b.dataset.goto)));
+    // "Dietary requirements" link: scroll to the form without changing tabs or the URL.
+    $("diet-link").addEventListener("click", (e) => {
+      e.preventDefault();
+      const form = $("diet-form");
+      form.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+      setTimeout(() => $("d-name").focus({ preventScroll: true }), 400);
+    });
     window.addEventListener("hashchange", () => showTab(location.hash.slice(1), { push: false }));
     const start = location.hash.slice(1);
     showTab(TAB_IDS.includes(start) ? start : "details", { push: false });
@@ -232,7 +239,7 @@
   const filter = { cat: "all", price: "all", hideClaimed: false };
 
   const matchesCat = (item, cat) => cat === "all" || item.category === cat;
-  const matchesPrice = (item, band) => band === "all" || item.price === band || item.price === "any";
+  const matchesPrice = (item, band) => band === "all" || item.price === band;
 
   function renderChips() {
     const make = (boxId, entries, key, test) => {

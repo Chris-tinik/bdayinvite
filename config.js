@@ -66,29 +66,29 @@ window.PARTY = {
 
   // Give every item a unique id that never changes.
   //   cost:  the price shown on the item (only for specific products). Leave it out to hide the price.
-  //   price: which price filter it belongs to: one of the priceBands keys above,
-  //          or "any" for things that can cost whatever (these show under every price filter).
+  //   price: which price filter it belongs to (one of the priceBands keys above).
+  //          For items without a cost these are rough guesses. "any" = only shows under "Any price".
   //   open: true  -> an idea anyone can go with; nobody can claim it
   //   otherwise   -> one person taps "I'll get this" (no name needed) so nobody doubles up
   wishlist: [
-    { id: "snow-jacket",       category: "clothes",   price: "any",      title: "Hot pink snow jacket", note: "Size S/M. The pinker the better." },
-    { id: "papasan-chair",     category: "home",      price: "any",      title: "Shangri-La papasan swivel wicker chair (beige)", link: "https://www.kogan.com/au/buy/shangri-la-papasan-swivel-wicker-chair-beige-shangri-la-c/" },  // add cost: "$___" and price: "150-plus" once you know the Kogan price
-    { id: "tennis-bracelet",   category: "jewellery", price: "any",      title: "Tennis bracelet" },
-    { id: "polaroid-camera",   category: "tech",      price: "any",      title: "Polaroid camera", note: "My old one broke ;-;" },
+    { id: "snow-jacket",       category: "clothes",   price: "150-plus",      title: "Hot pink snow jacket", note: "Size S/M. The pinker the better." },
+    { id: "papasan-chair",     category: "home",      price: "150-plus",      title: "Shangri-La papasan swivel wicker chair (beige)", link: "https://www.kogan.com/au/buy/shangri-la-papasan-swivel-wicker-chair-beige-shangri-la-c/" },  // add cost: "$___" once you know the Kogan price
+    { id: "tennis-bracelet",   category: "jewellery", price: "50-150",      title: "Tennis bracelet" },
+    { id: "polaroid-camera",   category: "tech",      price: "150-plus",      title: "Polaroid camera", note: "My old one broke ;-;" },
     { id: "fitbit-air",        category: "tech",      price: "150-plus", cost: "$199", title: "Fitbit Air" },
     { id: "dior-glow-palette", category: "beauty",    price: "50-150",   cost: "$97",  title: "Dior Backstage Glow Maximizer palette", note: "In shade 002 Frosted Opal Glow.", link: "https://www.dior.com/en_au/beauty/products/dior-backstage-glow-maximizer-palette-Y0000104.html" },
-    { id: "snow-pants",        category: "clothes",   price: "any",      title: "Snow pants", note: "Size S. Black and baggy." },
-    { id: "keyboard-switches", category: "tech",      price: "any",      title: "Keyboard switches for the thock", note: "Silent, thocky linear switches, average gram weight. My keyboard needs fixing :(" },
-    { id: "volleyball-shoes",  category: "sport",     price: "any",      title: "Volleyball shoes", note: "Size 39." },
-    { id: "mizuno-sleeves",    category: "sport",     price: "any",      title: "Mizuno arm sleeves", note: "I keep losing them." },
-    { id: "gym-shorts",        category: "sport",     price: "any",      title: "High-waisted gym shorts", note: "Size S. Gymshark is great." },
-    { id: "gym-leggings",      category: "sport",     price: "any",      title: "Gym leggings with a scrunch", note: "Size S." },
-    { id: "gym-tops",          category: "sport",     price: "any",      title: "Gym tops", note: "Size S/M. Crop tops, sports bras or fitted tees. Gymshark is great." },
-    { id: "heatless-curls",    category: "beauty",    price: "any",      title: "6-piece heatless curls set" },
-    { id: "makeup-brushes",    category: "beauty",    price: "any",      title: "Makeup brushes" },
+    { id: "snow-pants",        category: "clothes",   price: "50-150",      title: "Snow pants", note: "Size S. Black and baggy." },
+    { id: "keyboard-switches", category: "tech",      price: "50-150",      title: "Keyboard switches for the thock", note: "Silent, thocky linear switches, average gram weight. My keyboard needs fixing :(" },
+    { id: "volleyball-shoes",  category: "sport",     price: "150-plus",      title: "Volleyball shoes", note: "Size 39." },
+    { id: "mizuno-sleeves",    category: "sport",     price: "under-50",      title: "Mizuno arm sleeves", note: "I keep losing them." },
+    { id: "gym-shorts",        category: "sport",     price: "under-50",      title: "High-waisted gym shorts", note: "Size S. Gymshark is great." },
+    { id: "gym-leggings",      category: "sport",     price: "50-150",      title: "Gym leggings with a scrunch", note: "Size S." },
+    { id: "gym-tops",          category: "sport",     price: "under-50",      title: "Gym tops", note: "Size S/M. Crop tops, sports bras or fitted tees. Gymshark is great." },
+    { id: "heatless-curls",    category: "beauty",    price: "under-50",      title: "6-piece heatless curls set" },
+    { id: "makeup-brushes",    category: "beauty",    price: "under-50",      title: "Makeup brushes" },
     { id: "rhode-lip",         category: "beauty",    price: "under-50", cost: "$35 to $41", title: "Rhode lip liner or lip gloss", note: "Lip tint is $35, lip shaper is $41 at Mecca." },
-    { id: "hanpoom-plates",    category: "home",      price: "any",      title: "Hanpoom cooking plates" },
-    { id: "basics",            category: "clothes",   price: "any",      title: "Some basics, like a plain shirt", note: "Size S/M. Glassons is totally fine." },
+    { id: "hanpoom-plates",    category: "home",      price: "50-150",      title: "Hanpoom cooking plates" },
+    { id: "basics",            category: "clothes",   price: "under-50",      title: "Some basics, like a plain shirt", note: "Size S/M. Glassons is totally fine." },
 
     // ---- open ideas (can't be claimed) ----
     { id: "cooking",   open: true, category: "home",      price: "any", title: "Anything cooking related" },
