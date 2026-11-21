@@ -104,7 +104,7 @@
   const host = P.host || "My";
 
   function renderDetails() {
-    document.title = `${host}'s ${P.golden ? "golden " : P.age ? ordinal(P.age) + " " : ""}birthday on the harbour`;
+    document.title = `${host}'s ${P.golden ? "golden " : P.age ? ordinal(P.age) + " " : ""}birthday`;
     if (P.golden) {
       $("golden-word").hidden = false;
       document.body.classList.add("is-golden");
