@@ -234,6 +234,13 @@
 
   // ---------------- wishlist ----------------
   let store;
+  let markStoreReady;
+  const storeReady = new Promise((r) => { markStoreReady = r; });
+  // Wait for the database connection (it takes a second or two on page load).
+  function whenConnected(ms = 20000) {
+    if (store) return Promise.resolve(store);
+    return Promise.race([storeReady, new Promise((_, rej) => setTimeout(() => rej(new Error("offline")), ms))]);
+  }
   let claims = {};
   const busy = new Set();
   const filter = { cat: "all", price: "all", hideClaimed: false };
@@ -279,9 +286,10 @@
   }
 
   async function toggleClaim(item, mine) {
-    if (!store || busy.has(item.id)) return;
+    if (busy.has(item.id)) return;
     busy.add(item.id);
     try {
+      if (!store) { toast("Connecting…"); await whenConnected(); }
       if (mine) {
         await store.unclaim(item.id);
         toast("Unclaimed. Someone else can pick it now.");
@@ -395,16 +403,19 @@
       const notes = $("d-notes").value.trim();
       if (!name) { err.textContent = "Add your name so Tini knows who it's for."; err.hidden = false; $("d-name").focus(); return; }
       if (!dietPicked.size && !notes) { err.textContent = "Tap an option or write a note. If you have no requirements, you don't need to send anything."; err.hidden = false; return; }
-      if (!store) { err.textContent = "Still connecting. Try again in a moment."; err.hidden = false; return; }
       const btn = $("diet-submit");
+      const label = btn.textContent;
       btn.disabled = true;
+      btn.textContent = "Sending…";
       try {
+        await whenConnected();
         await store.saveDiet({ name: name.slice(0, 60), needs: [...dietPicked].slice(0, 12), notes: notes.slice(0, 300) });
         ok.textContent = "Thanks, Tini's got it! You can update this any time from this phone.";
         ok.hidden = false;
         btn.textContent = "Update my answer";
       } catch (e) {
         console.error(e);
+        btn.textContent = label;
         err.textContent = "That didn't send. Check your connection and try again.";
         err.hidden = false;
       } finally {
@@ -438,6 +449,7 @@
       store = demoStore();
     }
     if (notes.length) { banner.textContent = notes.join(" "); banner.hidden = false; }
+    markStoreReady(store);
 
     store.onClaims((m) => { claims = m; renderWishlist(); });
     loadMyDiet();
