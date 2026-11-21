@@ -128,6 +128,18 @@
     if (P.onBoard) $("f-onboard").textContent = P.onBoard; else $("onboard-row").hidden = true;
     $("f-extra").textContent = P.extraInfo || "";
     $("wish-note").textContent = P.wishlistNote || "";
+    const sizes = P.sizes || [];
+    if (sizes.length) {
+      $("sizes-box").hidden = false;
+      const dl = $("size-list");
+      dl.replaceChildren();
+      sizes.forEach((sz) => {
+        const d = el("div", "size");
+        d.appendChild(el("dt", null, sz.label));
+        d.appendChild(el("dd", null, sz.value));
+        dl.appendChild(d);
+      });
+    }
     $("footer-text").textContent = `see you on deck! love, ${host} xx`;
 
     const fb = $("fb-link");

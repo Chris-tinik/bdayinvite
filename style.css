@@ -366,6 +366,19 @@ main { display: grid; align-content: start; gap: 3rem; padding-block: 1rem 2rem;
 .tldr-warn:empty { display: none; }
 .tldr-actions { display: flex; flex-wrap: wrap; gap: 10px; padding: 0 22px 22px; }
 
+/* ---------- my sizes ---------- */
+.sizes { display: grid; gap: 6px; }
+.size-list { margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.size {
+  display: grid; justify-items: center; gap: 2px;
+  padding: 10px 6px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.size dt { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-soft); }
+.size dd { margin: 0; font: italic 700 1.7rem/1 var(--display); color: var(--pink-dark); font-variant-numeric: lining-nums; }
+
 /* ---------- wishlist filters ---------- */
 .filters { display: grid; gap: 12px; }
 .filter-group { display: grid; gap: 6px; min-width: 0; }

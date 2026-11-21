@@ -38,6 +38,13 @@ window.PARTY = {
   // ---- Wishlist tab ----
   wishlistNote: "Honestly just come! But if you want to bring something, here's what I've been eyeing.",
 
+  // Shown at the top of the Wishlist tab.
+  sizes: [
+    { label: "Tops",    value: "S/M" },
+    { label: "Bottoms", value: "S" },
+    { label: "Shoes",   value: "39" }
+  ],
+
   // Filter labels. The keys are what each item's `category` / `price` uses.
   categories: {
     clothes:   "Clothes",
@@ -60,23 +67,24 @@ window.PARTY = {
   //   open: true  -> an idea anyone can go with; nobody can claim it
   //   otherwise   -> one person taps "I'll get this" (no name needed) so nobody doubles up
   wishlist: [
-    { id: "snow-jacket",       category: "clothes",   price: "any",      title: "Hot pink snow jacket", note: "The pinker the better." },
+    { id: "snow-jacket",       category: "clothes",   price: "any",      title: "Hot pink snow jacket", note: "Size S/M. The pinker the better." },
     { id: "papasan-chair",     category: "home",      price: "any",      title: "Shangri-La papasan swivel wicker chair (beige)", link: "https://www.kogan.com/au/buy/shangri-la-papasan-swivel-wicker-chair-beige-shangri-la-c/" },  // add cost: "$___" and price: "150-plus" once you know the Kogan price
     { id: "tennis-bracelet",   category: "jewellery", price: "any",      title: "Tennis bracelet" },
     { id: "polaroid-camera",   category: "tech",      price: "any",      title: "Polaroid camera", note: "My old one broke ;-;" },
     { id: "fitbit-air",        category: "tech",      price: "150-plus", cost: "$199", title: "Fitbit Air" },
     { id: "dior-glow-palette", category: "beauty",    price: "50-150",   cost: "$97",  title: "Dior Backstage Glow Maximizer palette", note: "In shade 002 Frosted Opal Glow.", link: "https://www.dior.com/en_au/beauty/products/dior-backstage-glow-maximizer-palette-Y0000104.html" },
-    { id: "snow-pants",        category: "clothes",   price: "any",      title: "Snow pants", note: "Black and baggy." },
+    { id: "snow-pants",        category: "clothes",   price: "any",      title: "Snow pants", note: "Size S. Black and baggy." },
     { id: "keyboard-switches", category: "tech",      price: "any",      title: "Keyboard switches for the thock", note: "Silent, thocky linear switches, average gram weight. My keyboard needs fixing :(" },
-    { id: "volleyball-shoes",  category: "sport",     price: "any",      title: "Volleyball shoes" },
+    { id: "volleyball-shoes",  category: "sport",     price: "any",      title: "Volleyball shoes", note: "Size 39." },
     { id: "mizuno-sleeves",    category: "sport",     price: "any",      title: "Mizuno arm sleeves", note: "I keep losing them." },
-    { id: "gym-shorts",        category: "sport",     price: "any",      title: "High-waisted gym shorts", note: "Gymshark is great." },
-    { id: "gym-leggings",      category: "sport",     price: "any",      title: "Gym leggings with a scrunch" },
+    { id: "gym-shorts",        category: "sport",     price: "any",      title: "High-waisted gym shorts", note: "Size S. Gymshark is great." },
+    { id: "gym-leggings",      category: "sport",     price: "any",      title: "Gym leggings with a scrunch", note: "Size S." },
+    { id: "gym-tops",          category: "sport",     price: "any",      title: "Gym tops", note: "Size S/M. Crop tops, sports bras or fitted tees. Gymshark is great." },
     { id: "heatless-curls",    category: "beauty",    price: "any",      title: "6-piece heatless curls set" },
     { id: "makeup-brushes",    category: "beauty",    price: "any",      title: "Makeup brushes" },
     { id: "rhode-lip",         category: "beauty",    price: "under-50", cost: "$35 to $41", title: "Rhode lip liner or lip gloss", note: "Lip tint is $35, lip shaper is $41 at Mecca." },
     { id: "hanpoom-plates",    category: "home",      price: "any",      title: "Hanpoom cooking plates" },
-    { id: "basics",            category: "clothes",   price: "any",      title: "Some basics, like a plain shirt", note: "Glassons is totally fine." },
+    { id: "basics",            category: "clothes",   price: "any",      title: "Some basics, like a plain shirt", note: "Size S/M. Glassons is totally fine." },
 
     // ---- open ideas (can't be claimed) ----
     { id: "cooking",   open: true, category: "home",      price: "any", title: "Anything cooking related" },
