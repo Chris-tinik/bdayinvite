@@ -24,6 +24,8 @@ To preview, double-click `index.html`.
 
 The site is hosted on **GitHub Pages** from the `main` branch of https://github.com/Chris-tinik/bdayinvite. Every push to `main` updates the live site within 1 to 2 minutes. You can watch the progress in the repo's **Actions** tab. If you still see the old version, do a hard refresh (Ctrl+F5).
 
+After changing `style.css`, `app.js` or `config.js`, bump the `?v=` number on their links in `index.html`. That makes phones load the new files instead of a saved copy (GitHub Pages lets browsers keep files for 10 minutes).
+
 Pages is set up under **Settings > Pages > Deploy from a branch > `main` / (root)**.
 
 ## The database (Firebase)
