@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Birthday on the Harbour</title>
+  <!-- Link previews (iMessage, WhatsApp, Messenger) read these. Edit to match your party. -->
+  <meta property="og:title" content="Tini's golden birthday on Sydney Harbour">
+  <meta property="og:description" content="Saturday 19 December, 5:30 to 9:30pm on a boat. Details, wishlist and dress code.">
+  <meta name="theme-color" content="#4F7FAE">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500;1,600;1,700&family=Jost:wght@400;500;600&family=Caveat:wght@600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="banner" class="banner" hidden></div>
+
+  <header class="hero">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="lemons" viewBox="0 0 120 80">
+        <path d="M58,6 C62,14 62,22 58,30" stroke="#6E7D45" stroke-width="3" fill="none" stroke-linecap="round"></path>
+        <path d="M58,12 C44,4 30,8 24,18 C36,22 48,20 58,12 Z" fill="#8A9A5B"></path>
+        <path d="M60,16 C74,8 90,12 96,22 C84,26 70,24 60,16 Z" fill="#7C8C4E"></path>
+        <ellipse cx="40" cy="50" rx="22" ry="17" fill="#F2D35B" transform="rotate(-18 40 50)"></ellipse>
+        <ellipse cx="76" cy="54" rx="21" ry="16" fill="#F5DC6E" transform="rotate(14 76 54)"></ellipse>
+        <ellipse cx="33" cy="44" rx="6" ry="3" fill="#FFF3B8" transform="rotate(-30 33 44)"></ellipse>
+        <ellipse cx="70" cy="48" rx="6" ry="3" fill="#FFF3B8" transform="rotate(-10 70 48)"></ellipse>
+      </symbol>
+      <symbol id="butterfly" viewBox="0 0 40 32">
+        <g class="wing-l">
+          <ellipse cx="11" cy="11" rx="10" ry="8" fill="#F0569A" transform="rotate(-25 11 11)"></ellipse>
+          <ellipse cx="13" cy="22" rx="6.5" ry="5" fill="#F78DBA" transform="rotate(20 13 22)"></ellipse>
+          <circle cx="9" cy="10" r="2.2" fill="#FFD3E6"></circle>
+        </g>
+        <g class="wing-r">
+          <ellipse cx="29" cy="11" rx="10" ry="8" fill="#F0569A" transform="rotate(25 29 11)"></ellipse>
+          <ellipse cx="27" cy="22" rx="6.5" ry="5" fill="#F78DBA" transform="rotate(-20 27 22)"></ellipse>
+          <circle cx="31" cy="10" r="2.2" fill="#FFD3E6"></circle>
+        </g>
+        <rect x="18.8" y="6" width="2.4" height="20" rx="1.2" fill="#7A2650"></rect>
+        <path d="M20,7 q-3,-5 -6,-5 M20,7 q3,-5 6,-5" stroke="#7A2650" stroke-width="1.2" fill="none" stroke-linecap="round"></path>
+      </symbol>
+    </svg>
+    <div class="awning" aria-hidden="true"></div>
+    <div class="sky" aria-hidden="true">
+      <span class="sun"></span>
+      <svg class="butterfly b1"><use href="#butterfly"></use></svg>
+      <svg class="butterfly b2"><use href="#butterfly"></use></svg>
+      <svg class="butterfly b3"><use href="#butterfly"></use></svg>
+      <span class="sparkle k1"></span><span class="sparkle k2"></span><span class="sparkle k3"></span><span class="sparkle k4"></span>
+      <svg class="hero-lemons"><use href="#lemons"></use></svg>
+    </div>
+    <div class="wrap hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow" id="eyebrow">All aboard · Sydney Harbour</p>
+        <h1 class="hero-title"><span id="host-name">My</span> <span id="golden-word" class="gold" hidden>golden</span> birthday on the harbour</h1>
+        <p class="tagline" id="tagline"></p>
+      </div>
+      <div class="ring" id="ring" role="img" aria-label="Life ring">
+        <span class="ring-num" id="ring-num"></span>
+      </div>
+    </div>
+    <svg class="boat" viewBox="0 0 220 136" role="img" aria-label="A grey tabby and a cow cat sailing in a little pink boat">
+      <defs>
+        <clipPath id="cow-head"><ellipse cx="152" cy="60" rx="28" ry="25"></ellipse></clipPath>
+        <clipPath id="cow-body"><ellipse cx="152" cy="92" rx="30" ry="22"></ellipse></clipPath>
+      </defs>
+
+      <!-- mast + pennant -->
+      <line x1="110" y1="92" x2="110" y2="18" stroke="#7A6A55" stroke-width="3" stroke-linecap="round"></line>
+      <path d="M112,20 L142,29 L112,38 Z" fill="#F0569A"></path>
+
+      <!-- grey tabby -->
+      <g class="cat-tabby">
+        <ellipse cx="68" cy="92" rx="30" ry="22" fill="#A3A1AE"></ellipse>
+        <path d="M50,84 q4,5 2,11 M86,84 q-4,5 -2,11" stroke="#6F6C7D" stroke-width="3" fill="none" stroke-linecap="round"></path>
+        <path d="M46,50 L50,20 L70,40 Z M66,40 L86,20 L90,50 Z" fill="#A3A1AE"></path>
+        <path d="M51,44 L53,29 L64,40 Z M72,40 L83,29 L85,44 Z" fill="#F6B6C8"></path>
+        <ellipse cx="68" cy="60" rx="28" ry="25" fill="#A3A1AE"></ellipse>
+        <path d="M68,37 v10 M60,39 q2,5 3,9 M76,39 q-2,5 -3,9" stroke="#6F6C7D" stroke-width="3" fill="none" stroke-linecap="round"></path>
+        <path d="M41,60 h9 M42,66 h8 M95,60 h-9 M94,66 h-8" stroke="#6F6C7D" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+        <circle cx="52" cy="68" r="5" fill="#F79BAE" opacity="0.75"></circle>
+        <circle cx="84" cy="68" r="5" fill="#F79BAE" opacity="0.75"></circle>
+        <path d="M54,58 q5,-6 10,0 M72,58 q5,-6 10,0" stroke="#3B2540" stroke-width="3" fill="none" stroke-linecap="round"></path>
+        <path d="M65,65 h6 l-3,3.5 Z" fill="#E8467C"></path>
+        <path d="M68,68.5 q-2.5,4 -5,1.5 M68,68.5 q2.5,4 5,1.5" stroke="#3B2540" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+      </g>
+
+      <!-- cow cat -->
+      <g class="cat-cow">
+        <ellipse cx="152" cy="92" rx="30" ry="22" fill="#FFFFFF"></ellipse>
+        <ellipse cx="168" cy="86" rx="13" ry="10" fill="#2B2230" clip-path="url(#cow-body)"></ellipse>
+        <path d="M130,50 L134,20 L154,40 Z" fill="#2B2230"></path>
+        <path d="M150,40 L170,20 L174,50 Z" fill="#FFFFFF"></path>
+        <path d="M135,44 L137,29 L148,40 Z M156,40 L167,29 L169,44 Z" fill="#F6B6C8"></path>
+        <ellipse cx="152" cy="60" rx="28" ry="25" fill="#FFFFFF"></ellipse>
+        <g clip-path="url(#cow-head)">
+          <path d="M120,62 Q118,32 146,34 Q154,44 148,52 Q140,64 120,62 Z" fill="#2B2230"></path>
+          <ellipse cx="168" cy="40" rx="7" ry="5" fill="#2B2230"></ellipse>
+        </g>
+        <ellipse cx="152" cy="60" rx="28" ry="25" fill="none" stroke="#EBD9E0" stroke-width="1.5"></ellipse>
+        <circle cx="136" cy="68" r="5" fill="#F79BAE" opacity="0.75"></circle>
+        <circle cx="168" cy="68" r="5" fill="#F79BAE" opacity="0.75"></circle>
+        <path d="M138,57 q5,-6 10,0" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round"></path>
+        <path d="M156,57 q5,-6 10,0" stroke="#3B2540" stroke-width="3" fill="none" stroke-linecap="round"></path>
+        <path d="M149,65 h6 l-3,3.5 Z" fill="#E8467C"></path>
+        <path d="M152,68.5 q-2.5,4 -5,1.5 M152,68.5 q2.5,4 5,1.5" stroke="#3B2540" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+      </g>
+
+      <!-- hull -->
+      <path d="M8,92 H212 Q206,118 184,130 H36 Q14,118 8,92 Z" fill="#FFFFFF"></path>
+      <path d="M13,103 H207 Q204,109 200,113 H20 Q16,109 13,103 Z" fill="#4F7FAE"></path>
+      <rect x="6" y="87" width="208" height="8" rx="4" fill="#9DC0DE"></rect>
+
+      <!-- paws on the rim -->
+      <ellipse cx="56" cy="88" rx="7" ry="5" fill="#A3A1AE"></ellipse>
+      <ellipse cx="80" cy="88" rx="7" ry="5" fill="#A3A1AE"></ellipse>
+      <ellipse cx="140" cy="88" rx="7" ry="5" fill="#FFFFFF" stroke="#EBD9E0" stroke-width="1.2"></ellipse>
+      <ellipse cx="164" cy="88" rx="7" ry="5" fill="#2B2230"></ellipse>
+    </svg>
+
+    <svg class="waves" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true">
+      <path class="wave wave-1" d="M0,50 C160,80 320,20 520,44 C720,68 880,96 1080,64 C1260,36 1360,40 1440,52 L1440,140 L0,140 Z"></path>
+      <path class="wave wave-2" d="M0,78 C200,52 400,104 620,84 C840,64 1000,46 1200,72 C1320,88 1390,90 1440,84 L1440,140 L0,140 Z"></path>
+      <path class="wave wave-3" d="M0,104 C240,84 460,124 720,108 C960,92 1180,86 1440,104 L1440,140 L0,140 Z"></path>
+    </svg>
+  </header>
+
+  <nav class="tabbar" aria-label="Sections">
+    <div class="wrap">
+      <div class="tabs" role="tablist" aria-label="Party info">
+        <button type="button" class="tab" role="tab" id="tab-details" aria-controls="panel-details" aria-selected="true" data-tab="details">Details</button>
+        <button type="button" class="tab" role="tab" id="tab-wishlist" aria-controls="panel-wishlist" aria-selected="false" tabindex="-1" data-tab="wishlist">Wishlist</button>
+        <button type="button" class="tab" role="tab" id="tab-dresscode" aria-controls="panel-dresscode" aria-selected="false" tabindex="-1" data-tab="dresscode">Dress code</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <!-- ============ Details ============ -->
+    <section class="panel" id="panel-details" role="tabpanel" aria-labelledby="tab-details">
+      <article class="tldr">
+        <div class="tldr-head">
+          <h2>TL;DR</h2>
+          <svg class="tldr-lemons" aria-hidden="true"><use href="#lemons"></use></svg>
+        </div>
+        <dl class="tldr-list">
+          <div class="tldr-row"><dt>When</dt><dd id="f-when"></dd></div>
+          <div class="tldr-row"><dt>Where</dt><dd id="f-where"></dd></div>
+          <div class="tldr-row" id="onboard-row"><dt>On board</dt><dd id="f-onboard"></dd></div>
+          <div class="tldr-row"><dt>Wear</dt><dd><span id="f-dress"></span> <button type="button" class="inline-link" data-goto="dresscode">Dress code</button></dd></div>
+          <div class="tldr-row" id="bring-row"><dt>Bring</dt><dd id="f-bring"></dd></div>
+        </dl>
+        <p class="tldr-warn" id="f-extra"></p>
+        <div class="tldr-actions">
+          <a class="btn btn-primary" id="fb-link" target="_blank" rel="noopener">Event page on Facebook</a>
+          <a class="btn btn-ghost" id="map-link" target="_blank" rel="noopener">Directions</a>
+          <button type="button" class="btn btn-ghost" data-goto="wishlist">See the wishlist</button>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============ Wishlist ============ -->
+    <section class="panel" id="panel-wishlist" role="tabpanel" aria-labelledby="tab-wishlist" hidden>
+      <div class="panel-head">
+        <h2>Wishlist</h2>
+        <p class="section-sub" id="wish-note"></p>
+      </div>
+
+      <div class="filters">
+        <div class="filter-group">
+          <span class="filter-label" id="cat-label">Type of gift</span>
+          <div class="chips" id="cat-chips" role="group" aria-labelledby="cat-label"></div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label" id="price-label">Price</span>
+          <div class="chips" id="price-chips" role="group" aria-labelledby="price-label"></div>
+        </div>
+      </div>
+
+      <div class="list-head">
+        <p class="count" id="wish-count" aria-live="polite"></p>
+        <label class="toggle" for="hide-claimed"><input type="checkbox" id="hide-claimed"> Hide claimed</label>
+      </div>
+
+      <div class="wish-scroll" id="wish-scroll" tabindex="0" aria-label="Wishlist items">
+        <ul class="wish-list" id="wish-list"></ul>
+        <div class="empty" id="wish-empty" hidden>
+          <p>Nothing matches those filters.</p>
+          <button type="button" class="btn btn-ghost btn-small" id="clear-filters">Show everything</button>
+        </div>
+      </div>
+      <p class="hint">Tap "I'll get this" so nobody doubles up. It's anonymous, and you can unclaim from the same phone. Prices are from Australian stores and can change. Gifts without a price can be whatever you like, so they show under every price.</p>
+    </section>
+
+    <!-- ============ Dress code ============ -->
+    <section class="panel" id="panel-dresscode" role="tabpanel" aria-labelledby="tab-dresscode" hidden>
+      <div class="dress-card">
+        <p class="filter-label">Dress code</p>
+        <h2 class="dress-title" id="dc-headline"></h2>
+        <p class="dress-intro" id="dc-intro"></p>
+        <dl class="dress-tips" id="dc-tips"></dl>
+      </div>
+
+      <div class="inspo" id="inspo" hidden>
+        <div class="inspo-head">
+          <h3>Outfit inspo</h3>
+          <a class="btn btn-ghost btn-small" id="pin-link" target="_blank" rel="noopener">Open in Pinterest</a>
+        </div>
+        <div class="pin-board" id="pin-board">
+          <p class="pin-loading" id="pin-loading">Loading the board…</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <svg class="footer-lemons" aria-hidden="true"><use href="#lemons"></use></svg>
+    <p id="footer-text">See you on deck.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

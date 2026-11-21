@@ -1,0 +1,103 @@
+// ============================================================
+//  EDIT THIS FILE to change what the page says.
+// ============================================================
+
+window.PARTY = {
+  // Set to true to show a strip at the top saying some details are placeholders.
+  sample: false,
+
+  host: "Tini",
+  age: 24,                      // shown on the life ring
+  golden: true,                 // golden birthday: turning 24 on the 24th
+  tagline: "Turning 24 on the 24th, so it's my golden birthday. Come celebrate on a boat on Sydney Harbour.",
+
+  facebookEvent: "https://fb.me/e/7AimQstKy",
+
+  // ---- Details tab (plain text, shown exactly as written) ----
+  when:  "Saturday 19 December, 5:30pm to 9:30pm",
+  where: "Sydney Harbour (the exact wharf is on the Facebook event)",
+  mapsQuery: "",                // add the wharf address here to show a Directions button
+  onBoard: "Food and drinks are all provided, so just bring yourself.",
+  bring: "Sunnies, sunscreen, and a light layer for when the sun goes down.",
+  extraInfo: "Get there early. It's a boat, so it leaves at 5:30pm on the dot and can't wait for anyone.",
+
+  // ---- Dress code tab ----
+  dressCode: {
+    headline: "Summer vibes",
+    // Public Pinterest board shown in the Dress code tab. Remove the line to hide it.
+    pinterest: "https://www.pinterest.com.au/chkong9024/24th-bday-inspo-fits/",
+    intro: "Dress like it's a long summer evening on the water.",
+    tips: [
+      { title: "Think",           text: "Linen, sundresses, skirts, light shirts, shorts. Bright colours welcome." },
+      { title: "On deck",         text: "Flat shoes or sneakers. Heels and boat decks don't mix." },
+      { title: "After sunset",    text: "It gets breezy on the harbour, so bring a light layer." },
+      { title: "Golden birthday", text: "A touch of gold is a fun nod to the golden birthday, but totally optional." }
+    ]
+  },
+
+  // ---- Wishlist tab ----
+  wishlistNote: "Honestly just come! But if you want to bring something, here's what I've been eyeing.",
+
+  // Filter labels. The keys are what each item's `category` / `price` uses.
+  categories: {
+    clothes:   "Clothes",
+    sport:     "Sport & gym",
+    beauty:    "Beauty",
+    home:      "Home & cooking",
+    tech:      "Tech",
+    jewellery: "Jewellery"
+  },
+  priceBands: {
+    "under-50": "Under $50",
+    "50-150":   "$50 to $150",
+    "150-plus": "$150+"
+  },
+
+  // Give every item a unique id that never changes.
+  //   cost:  the price shown on the item (only for specific products). Leave it out to hide the price.
+  //   price: which price filter it belongs to: one of the priceBands keys above,
+  //          or "any" for things that can cost whatever (these show under every price filter).
+  //   open: true  -> an idea anyone can go with; nobody can claim it
+  //   otherwise   -> one person taps "I'll get this" (no name needed) so nobody doubles up
+  wishlist: [
+    { id: "snow-jacket",       category: "clothes",   price: "any",      title: "Hot pink snow jacket", note: "The pinker the better." },
+    { id: "papasan-chair",     category: "home",      price: "any",      title: "Shangri-La papasan swivel wicker chair (beige)", link: "https://www.kogan.com/au/buy/shangri-la-papasan-swivel-wicker-chair-beige-shangri-la-c/" },  // add cost: "$___" and price: "150-plus" once you know the Kogan price
+    { id: "tennis-bracelet",   category: "jewellery", price: "any",      title: "Tennis bracelet" },
+    { id: "polaroid-camera",   category: "tech",      price: "any",      title: "Polaroid camera", note: "My old one broke ;-;" },
+    { id: "fitbit-air",        category: "tech",      price: "150-plus", cost: "$199", title: "Fitbit Air" },
+    { id: "dior-glow-palette", category: "beauty",    price: "50-150",   cost: "$97",  title: "Dior Backstage Glow Maximizer palette", note: "In shade 002 Frosted Opal Glow.", link: "https://www.dior.com/en_au/beauty/products/dior-backstage-glow-maximizer-palette-Y0000104.html" },
+    { id: "snow-pants",        category: "clothes",   price: "any",      title: "Snow pants", note: "Black and baggy." },
+    { id: "keyboard-switches", category: "tech",      price: "any",      title: "Keyboard switches for the thock", note: "Silent, thocky linear switches, average gram weight. My keyboard needs fixing :(" },
+    { id: "volleyball-shoes",  category: "sport",     price: "any",      title: "Volleyball shoes" },
+    { id: "mizuno-sleeves",    category: "sport",     price: "any",      title: "Mizuno arm sleeves", note: "I keep losing them." },
+    { id: "gym-shorts",        category: "sport",     price: "any",      title: "High-waisted gym shorts", note: "Gymshark is great." },
+    { id: "gym-leggings",      category: "sport",     price: "any",      title: "Gym leggings with a scrunch" },
+    { id: "heatless-curls",    category: "beauty",    price: "any",      title: "6-piece heatless curls set" },
+    { id: "makeup-brushes",    category: "beauty",    price: "any",      title: "Makeup brushes" },
+    { id: "rhode-lip",         category: "beauty",    price: "under-50", cost: "$35 to $41", title: "Rhode lip liner or lip gloss", note: "Lip tint is $35, lip shaper is $41 at Mecca." },
+    { id: "hanpoom-plates",    category: "home",      price: "any",      title: "Hanpoom cooking plates" },
+    { id: "basics",            category: "clothes",   price: "any",      title: "Some basics, like a plain shirt", note: "Glassons is totally fine." },
+
+    // ---- open ideas (can't be claimed) ----
+    { id: "cooking",   open: true, category: "home",      price: "any", title: "Anything cooking related" },
+    { id: "house",     open: true, category: "home",      price: "any", title: "Anything nice for the house" },
+    { id: "jewellery", open: true, category: "jewellery", price: "any", title: "Any jewellery", note: "Just not earrings." }
+  ]
+};
+
+// ============================================================
+//  FIREBASE (makes wishlist claims shared for everyone)
+//  Leave as null to run in demo mode: everything works, but it only
+//  saves in your own browser. See README.md for the setup.
+//  Paste the firebaseConfig object from the Firebase console here, e.g.:
+//
+//  window.FIREBASE_CONFIG = {
+//    apiKey: "AIza...",
+//    authDomain: "my-party.firebaseapp.com",
+//    projectId: "my-party",
+//    storageBucket: "my-party.appspot.com",
+//    messagingSenderId: "1234567890",
+//    appId: "1:1234567890:web:abc123"
+//  };
+// ============================================================
+window.FIREBASE_CONFIG = null;
