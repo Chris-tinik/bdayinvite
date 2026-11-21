@@ -76,6 +76,7 @@ window.PARTY = {
     { id: "tennis-bracelet",   category: "jewellery", price: "50-150",      title: "Tennis bracelet" },
     { id: "polaroid-camera",   category: "tech",      price: "150-plus",      title: "Polaroid camera", note: "My old one broke ;-;" },
     { id: "fitbit-air",        category: "tech",      price: "150-plus", cost: "$199", title: "Fitbit Air" },
+    { id: "monitor-34",        category: "tech",      price: "150-plus", title: "34-inch monitor with built-in speakers", note: "For work." },
     { id: "dior-glow-palette", category: "beauty",    price: "50-150",   cost: "$97",  title: "Dior Backstage Glow Maximizer palette", note: "In shade 002 Frosted Opal Glow.", link: "https://www.dior.com/en_au/beauty/products/dior-backstage-glow-maximizer-palette-Y0000104.html" },
     { id: "snow-pants",        category: "clothes",   price: "50-150",      title: "Snow pants", note: "Size S. Black and baggy." },
     { id: "keyboard-switches", category: "tech",      price: "50-150",      title: "Keyboard switches for the thock", note: "Silent, thocky linear switches, average gram weight. My keyboard needs fixing :(" },
