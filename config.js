@@ -14,12 +14,12 @@ window.PARTY = {
   facebookEvent: "https://fb.me/e/7AimQstKy",
 
   // ---- Details tab (plain text, shown exactly as written) ----
-  when:  "Saturday 19 December, 5:30pm to 9:30pm",
+  when:  "Saturday 19 December, 5pm to 9:30pm",
   where: "Towns Place, Millers Point NSW 2000 (the boat leaves from here)",
   mapsQuery: "Towns Pl, Millers Point NSW 2000, Australia",   // used for the Directions button
   onBoard: "Food and drinks are all provided, so just bring yourself.",
   bring: "Sunnies, sunscreen, and a light layer for when the sun goes down.",
-  extraInfo: "Get there early. It's a boat, so it leaves at 5:30pm on the dot and can't wait for anyone.",
+  extraInfo: "Get there early. It's a boat, so it leaves at 5pm on the dot and can't wait for anyone.",
 
   // ---- Dress code tab ----
   dressCode: {
