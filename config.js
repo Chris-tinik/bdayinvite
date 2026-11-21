@@ -18,6 +18,10 @@ window.PARTY = {
   where: "Towns Place, Millers Point NSW 2000 (the boat leaves from here)",
   mapsQuery: "Towns Pl, Millers Point NSW 2000, Australia",   // used for the Directions button
   onBoard: "Food and drinks are all provided, so just bring yourself.",
+
+  // Dietary requirements form (Details tab). Answers are private: only you can read them,
+  // in the Firebase console under Firestore Database > Data > dietary.
+  dietaryOptions: ["Vegetarian", "Vegan", "Pescatarian", "Gluten-free", "Dairy-free", "Nut allergy", "Halal", "No pork", "No seafood"],
   bring: "Sunnies, sunscreen, and a light layer for when the sun goes down.",
   extraInfo: "Get there early. It's a boat, so it leaves at 5pm on the dot and can't wait for anyone.",
 

@@ -14,6 +14,22 @@ service cloud.firestore {
       allow delete: if request.auth != null && resource.data.uid == request.auth.uid;
     }
 
+    // Dietary requirements: each person can only read and write their own answer.
+    // Nobody else on the site can read them. The host reads them in the Firebase console.
+    match /dietary/{uid} {
+      allow read, delete: if request.auth != null && request.auth.uid == uid;
+      allow create, update: if request.auth != null
+        && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['name', 'needs', 'notes', 'at'])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 60
+        && request.resource.data.needs is list
+        && request.resource.data.needs.size() <= 12
+        && request.resource.data.notes is string
+        && request.resource.data.notes.size() <= 300;
+    }
+
     // Everything else is closed.
     match /{document=**} {
       allow read, write: if false;

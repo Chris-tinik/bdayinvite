@@ -158,6 +158,30 @@
           <button type="button" class="btn btn-ghost" data-goto="wishlist">See the wishlist</button>
         </div>
       </article>
+
+      <form class="diet" id="diet-form" novalidate>
+        <div class="diet-head">
+          <h2>Dietary requirements</h2>
+          <p class="section-sub" id="diet-sub">Food is provided on board. If you have any dietary needs or allergies, let me know here. Only I can see your answer.</p>
+        </div>
+        <div class="field">
+          <label for="d-name">Your name</label>
+          <input id="d-name" type="text" maxlength="60" autocomplete="name" placeholder="So I know who it's for">
+        </div>
+        <fieldset class="field">
+          <legend>Tap any that apply</legend>
+          <div class="diet-options" id="diet-options"></div>
+        </fieldset>
+        <div class="field">
+          <label for="d-notes">Allergies or anything else <span class="optional">(optional)</span></label>
+          <textarea id="d-notes" rows="3" maxlength="300" placeholder="e.g. severe peanut allergy, no mushrooms"></textarea>
+        </div>
+        <p class="form-error" id="diet-error" role="alert" hidden></p>
+        <div class="diet-actions">
+          <button type="submit" class="btn btn-primary" id="diet-submit">Send to Tini</button>
+          <p class="form-ok" id="diet-ok" role="status" hidden></p>
+        </div>
+      </form>
     </section>
 
     <!-- ============ Wishlist ============ -->

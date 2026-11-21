@@ -168,7 +168,7 @@
   }
 
   // ---------------- storage ----------------
-  // Both stores expose: uid, onClaims(cb), claim(id), unclaim(id)
+  // Both stores expose: uid, onClaims(cb), claim(id), unclaim(id), getDiet(), saveDiet(data)
 
   function demoStore() {
     const read = (k, f) => { try { return JSON.parse(localStorage.getItem(k)) ?? f; } catch { return f; } };
@@ -185,7 +185,9 @@
         if (all[id]) throw new Error("taken");
         all[id] = { uid }; write("bday:claims", all); emit();
       },
-      async unclaim(id) { const all = read("bday:claims", {}); if (all[id]?.uid === uid) delete all[id]; write("bday:claims", all); emit(); }
+      async unclaim(id) { const all = read("bday:claims", {}); if (all[id]?.uid === uid) delete all[id]; write("bday:claims", all); emit(); },
+      async getDiet() { return read("bday:diet", null); },
+      async saveDiet(data) { write("bday:diet", data); }
     };
   }
 
@@ -213,7 +215,13 @@
         try { await fs.setDoc(fs.doc(db, "claims", id), { uid, at: fs.serverTimestamp() }); }
         catch (e) { throw new Error(e.code === "permission-denied" ? "taken" : "failed"); }
       },
-      async unclaim(id) { await fs.deleteDoc(fs.doc(db, "claims", id)); }
+      async unclaim(id) { await fs.deleteDoc(fs.doc(db, "claims", id)); },
+      // Each person can only read and write their own answer (doc id = their anonymous uid).
+      async getDiet() {
+        try { const d = await fs.getDoc(fs.doc(db, "dietary", uid)); return d.exists() ? d.data() : null; }
+        catch (e) { console.error(e); return null; }
+      },
+      async saveDiet(data) { await fs.setDoc(fs.doc(db, "dietary", uid), { ...data, at: fs.serverTimestamp() }); }
     };
   }
 
@@ -337,12 +345,74 @@
     });
   }
 
+  // ---------------- dietary requirements ----------------
+  const dietPicked = new Set();
+
+  function renderDietOptions() {
+    const box = $("diet-options");
+    box.replaceChildren();
+    (P.dietaryOptions || []).forEach((opt) => {
+      const b = el("button", "chip", opt);
+      b.type = "button";
+      b.setAttribute("aria-pressed", String(dietPicked.has(opt)));
+      b.addEventListener("click", () => {
+        if (dietPicked.has(opt)) dietPicked.delete(opt); else dietPicked.add(opt);
+        b.setAttribute("aria-pressed", String(dietPicked.has(opt)));
+      });
+      box.appendChild(b);
+    });
+  }
+
+  async function loadMyDiet() {
+    const mine = store && await store.getDiet();
+    if (!mine) return;
+    if (!$("d-name").value) $("d-name").value = mine.name || "";
+    if (!$("d-notes").value) $("d-notes").value = mine.notes || "";
+    (mine.needs || []).forEach((n) => dietPicked.add(n));
+    renderDietOptions();
+    $("diet-submit").textContent = "Update my answer";
+    const ok = $("diet-ok");
+    ok.textContent = "Got your answer. You can change it any time.";
+    ok.hidden = false;
+  }
+
+  function wireDiet() {
+    renderDietOptions();
+    $("diet-form").addEventListener("submit", async (ev) => {
+      ev.preventDefault();
+      const err = $("diet-error");
+      const ok = $("diet-ok");
+      err.hidden = true;
+      ok.hidden = true;
+      const name = $("d-name").value.trim();
+      const notes = $("d-notes").value.trim();
+      if (!name) { err.textContent = "Add your name so Tini knows who it's for."; err.hidden = false; $("d-name").focus(); return; }
+      if (!dietPicked.size && !notes) { err.textContent = "Tap an option or write a note. If you have no requirements, you don't need to send anything."; err.hidden = false; return; }
+      if (!store) { err.textContent = "Still connecting. Try again in a moment."; err.hidden = false; return; }
+      const btn = $("diet-submit");
+      btn.disabled = true;
+      try {
+        await store.saveDiet({ name: name.slice(0, 60), needs: [...dietPicked].slice(0, 12), notes: notes.slice(0, 300) });
+        ok.textContent = "Thanks, Tini's got it! You can update this any time from this phone.";
+        ok.hidden = false;
+        btn.textContent = "Update my answer";
+      } catch (e) {
+        console.error(e);
+        err.textContent = "That didn't send. Check your connection and try again.";
+        err.hidden = false;
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  }
+
   // ---------------- boot ----------------
   async function boot() {
     renderDetails();
     wireTabs();
     wireWishlist();
     renderWishlist();
+    wireDiet();
 
     const banner = $("banner");
     const notes = [];
@@ -363,6 +433,7 @@
     if (notes.length) { banner.textContent = notes.join(" "); banner.hidden = false; }
 
     store.onClaims((m) => { claims = m; renderWishlist(); });
+    loadMyDiet();
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);

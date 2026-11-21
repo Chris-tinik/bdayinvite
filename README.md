@@ -33,6 +33,12 @@ Claims are stored in the Firebase project **tini-bday**, at https://console.fire
 - The database is Cloud Firestore in `australia-southeast1` (Sydney). Its security rules are in `firestore.rules`. If you ever change that file, paste it into **Firestore Database > Rules** and click **Publish**.
 - The connection settings are at the bottom of `config.js` (`window.FIREBASE_CONFIG`). They aren't secret: they're designed to sit in public pages, and the rules control what people can do.
 
+## Reading dietary requirements
+
+Guests fill in the **Dietary requirements** form on the Details tab. Each person can only see their own answer, and nobody else on the site can read them.
+
+To read them all, go to https://console.firebase.google.com/project/tini-bday/firestore and open **Data > dietary**. Each entry shows the guest's name, what they ticked (`needs`) and their notes.
+
 ## Good to know
 
 - To reset a gift someone claimed by mistake, delete it under **Firestore Database > Data > claims**. Looking there won't spoil anything, because claims don't include names.
