@@ -93,7 +93,7 @@ window.PARTY = {
     // ---- open ideas (can't be claimed) ----
     { id: "cooking",   open: true, category: "home",      price: "any", title: "Anything cooking related" },
     { id: "house",     open: true, category: "home",      price: "any", title: "Anything nice for the house" },
-    { id: "jewellery", open: true, category: "jewellery", price: "any", title: "Any jewellery", note: "Just not earrings." }
+    { id: "jewellery", open: true, category: "jewellery", price: "any", title: "Any jewellery", note: "Bangles, bracelets, rings or necklaces. Just not earrings." }
   ]
 };
 
