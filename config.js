@@ -100,4 +100,11 @@ window.PARTY = {
 //    appId: "1:1234567890:web:abc123"
 //  };
 // ============================================================
-window.FIREBASE_CONFIG = null;
+window.FIREBASE_CONFIG = {
+  apiKey: "AIzaSyBuKTn1ylg4AzUViVY-HR0KSnciZDDbHzQ",
+  authDomain: "tini-bday.firebaseapp.com",
+  projectId: "tini-bday",
+  storageBucket: "tini-bday.firebasestorage.app",
+  messagingSenderId: "138038380954",
+  appId: "1:138038380954:web:a2dd08099e080c29eb5223"
+};
